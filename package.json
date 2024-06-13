@@ -5,9 +5,13 @@
   "scripts": {
     "start": "parcel src/index.html",
     "test": "jest",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "build": "babel src -d dist"
+
   },
   "devDependencies": {
+    "@babel/cli": "^7.24.7",
+    "@babel/core": "^7.24.7",
     "@babel/preset-env": "^7.24.7",
     "@eslint/js": "^9.4.0",
     "eslint": "^9.4.0",
