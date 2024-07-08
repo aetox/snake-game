@@ -1,9 +1,9 @@
 import { getRandomNumber } from './utils.js';
 
-class Game {
+export class Game {
     constructor() {
         this.boardSize = 50;
-        this.players = [{ name: 'Joueur 1', position: 0 }, { name: 'Joueur 2', position: 0 }];
+        this.players = [{ name: 'Joueur 1', position: 0, className: 'player1' }, { name: 'Joueur 2', position: 0, className: 'player2' }];
         this.currentPlayerIndex = 0;
         this.traps = { 37: 12, 14: 7, 46: 33 };
         this.bonuses = { 20: 35, 2: 17, 31: 43 };
@@ -25,10 +25,13 @@ class Game {
 
     updateBoard() {
         this.players.forEach(player => {
-            const playerCell = document.querySelector('.player');
-            if (playerCell) playerCell.classList.remove('player');
+            const playerCell = document.querySelector(`#cell-${player.position}.${player.className}`);
+            if (playerCell) playerCell.classList.remove(player.className);
+        });
+        
+        this.players.forEach(player => {
             const cell = document.getElementById(`cell-${player.position}`);
-            if (cell) cell.classList.add('player');
+            if (cell) cell.classList.add(player.className);
         });
     }
 
@@ -57,5 +60,3 @@ class Game {
         this.currentPlayerIndex = (this.currentPlayerIndex + 1) % this.players.length;
     }
 }
-
-export { Game };
