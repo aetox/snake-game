@@ -27,6 +27,6 @@ Ce projet implémente un jeu du Serpent en JavaScript, utilisant les principes d
 
 1. Cloner le dépôt
    ```bash
-   git clone https://github.com/ton-utilisateur/snake-game.git
+   git clone https://github.com/aetox/snake-game.git
    cd snake-game
    ```
